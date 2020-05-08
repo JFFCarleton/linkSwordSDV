@@ -1,0 +1,20 @@
+{
+    "Name": "linkSword", 
+    "Description": "TEST: It's dangerous to go alone, take this!", 
+    "Type": "Sword", 
+    "MinimumDamage": 24, 
+    "MaximumDamage": 31, 
+    "Accuracy": 8, 
+    "Defense": 0, 
+    "Speed": 0, 
+    "MineDropVar": -1,
+    "MineDropMinimumLevel": -1, 
+    "ExtraSwingArea": 1,
+    "CritChance": 0.02, 
+    "CritMultiplier": 3, 
+
+    "CanPurchase": true, 
+    "PurchaseFrom": "Pierre", 
+    "PurchasePrice": 1, 
+    "PurchaseRequirements": null
+}

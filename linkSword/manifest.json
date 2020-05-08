@@ -1,0 +1,10 @@
+{
+  "Name": "linkSword",
+  "Author": "Nori",
+  "Version": "1.1.1",
+  "Description": "Based off of Link's sword from the 1986 game. Regular sword, but if you're at full health, it will shoot a ~SwOrD bEaM!~",
+  "UniqueID": "nori.linkSword",
+  "EntryDll": "linkSword.dll",
+  "MinimumApiVersion": "3.0.0",
+  "UpdateKeys": []
+}

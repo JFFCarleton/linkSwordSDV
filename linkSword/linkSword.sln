@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "linkSword", "linkSword.csproj", "{77BBAC40-7C3B-4314-BA82-0B452A5A888E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77BBAC40-7C3B-4314-BA82-0B452A5A888E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77BBAC40-7C3B-4314-BA82-0B452A5A888E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77BBAC40-7C3B-4314-BA82-0B452A5A888E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77BBAC40-7C3B-4314-BA82-0B452A5A888E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F85C3DCE-7ED8-411F-8147-AFCC230F9C56}
+	EndGlobalSection
+EndGlobal
