@@ -7,6 +7,7 @@ using System.IO;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
+using StardewValley.Projectiles;
 
 namespace linkSword
 {
@@ -34,8 +35,16 @@ namespace linkSword
 
             helper.Events.GameLoop.GameLaunched += GameLoop_GameLaunched;
             helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
+            helper.Events.Input.ButtonPressed += Input_ButtonPressed;
+
         }
 
+        private void Input_ButtonPressed(object sender, ButtonPressedEventArgs e){
+            if (Context.IsWorldReady && e.Button.IsActionButton()) {
+                //Game1.currentLocation.projectiles.Add(new BasicProjectile());
+                Monitor.Log("Pew Pew!", LogLevel.Warn);
+            }
+        }
     }//end of class linkSword
 
     //create interface for SMapi to use
