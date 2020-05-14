@@ -53,14 +53,34 @@ namespace linkSword
             {
                 Farmer player = Game1.player;
                 /*So this is a basic projectile....
-                 * public BasicProjectile(int damageToFarmer, int parentSheetIndex, 
-                 * int bouncesTillDestruct, int tailLength, float rotationVelocity, 
-                 * float xVelocity, float yVelocity, Vector2 startingPosition, 
-                 * string collisionSound, string firingSound, bool explode, bool damagesMonsters = false, 
-                 * GameLocation location = null, Character firer = null, bool spriteFromObjectSheet = false, 
-                 * onCollisionBehavior collisionBehavior = null)
+                 * public BasicProjectile(
+                 * , , 
+                 * , , , 
+                 * , , , 
+                 * , , , , 
+                 *  ,  = null,  = false, 
+                 *  = null)
                  */
-                Game1.currentLocation.projectiles.Add(new BasicProjectile(1,1,0,0,0.0f,-1.0f,-1.0f, new Vector2(player.getStandingX()-16, player.getStandingY()-64-8), "","",false,false,Game1.currentLocation,player,false,null));
+                Game1.currentLocation.projectiles.Add(
+                    new BasicProjectile(
+                        0,                                                                  //int damageToFarmer
+                        1,                                                                  //int parentSheetIndex
+                        0,                                                                  //int bouncesTillDestruct
+                        0,                                                                  //int tailLength
+                        0.0f,                                                               //float rotationVelocity 
+                        -1.0f,                                                              //float xVelocity   
+                        -1.0f,                                                              //float yVelocity
+                        new Vector2(player.getStandingX()-16, player.getStandingY()-64-8),  //Vector2 startingPosition
+                        "",                                                                 //string collisionSound
+                        "",                                                                 //string firingSound
+                        false,                                                              //bool explode
+                        false,                                                              //bool damagesMonsters = false
+                        Game1.currentLocation,                                              //GameLocation location
+                        player,                                                             //Character firer
+                        false,                                                              //bool spriteFromObjectSheet
+                        null                                                                //onCollisionBehavior collisionBehavior
+                        )
+                    );
      
 
                     Monitor.Log("Pew Pew!", LogLevel.Warn);
