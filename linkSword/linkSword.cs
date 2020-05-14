@@ -8,6 +8,7 @@ using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
 using StardewValley.Projectiles;
+using StardewValley.Tools;
 
 namespace linkSword
 {
@@ -40,10 +41,27 @@ namespace linkSword
         }
 
         private void Input_ButtonPressed(object sender, ButtonPressedEventArgs e){
-            if (Context.IsWorldReady && e.Button.IsActionButton()) {
-                //Game1.currentLocation.projectiles.Add(new BasicProjectile());
-                Monitor.Log("Pew Pew!", LogLevel.Warn);
-            }
+            //ensures that won't run unless the player is able to act, and they are using the "use tool" button.
+            if (!Context.IsWorldReady || !Context.CanPlayerMove ||!e.Button.IsUseToolButton() ){ return; }
+
+            //ty kdau!
+            //1. Check if the current item is a MeleeWeapon, stops nulls too! <3
+            //2. Compare the current wep to make sure you're holding the right thing!
+            if (Game1.player.CurrentItem is MeleeWeapon heldWep && heldWep.InitialParentTileIndex == linkSwordID && Game1.player.health == Game1.player.maxHealth)
+            {
+
+                /*So this is a basic projectile....
+                 * public BasicProjectile(int damageToFarmer, int parentSheetIndex, 
+                 * int bouncesTillDestruct, int tailLength, float rotationVelocity, 
+                 * float xVelocity, float yVelocity, Vector2 startingPosition, 
+                 * string collisionSound, string firingSound, bool explode, bool damagesMonsters = false, 
+                 * GameLocation location = null, Character firer = null, bool spriteFromObjectSheet = false, 
+                 * onCollisionBehavior collisionBehavior = null)
+                 */
+
+                    Monitor.Log("Pew Pew!", LogLevel.Warn);
+           
+            }else return;  
         }
     }//end of class linkSword
 
