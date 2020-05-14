@@ -9,6 +9,8 @@ using StardewModdingAPI.Events;
 using StardewValley;
 using StardewValley.Projectiles;
 using StardewValley.Tools;
+using System.Security.Cryptography.X509Certificates;
+using Microsoft.Xna.Framework;
 
 namespace linkSword
 {
@@ -49,7 +51,7 @@ namespace linkSword
             //2. Compare the current wep to make sure you're holding the right thing!
             if (Game1.player.CurrentItem is MeleeWeapon heldWep && heldWep.InitialParentTileIndex == linkSwordID && Game1.player.health == Game1.player.maxHealth)
             {
-
+                Farmer player = Game1.player;
                 /*So this is a basic projectile....
                  * public BasicProjectile(int damageToFarmer, int parentSheetIndex, 
                  * int bouncesTillDestruct, int tailLength, float rotationVelocity, 
@@ -58,6 +60,8 @@ namespace linkSword
                  * GameLocation location = null, Character firer = null, bool spriteFromObjectSheet = false, 
                  * onCollisionBehavior collisionBehavior = null)
                  */
+                Game1.currentLocation.projectiles.Add(new BasicProjectile(1,1,0,0,0.0f,-1.0f,-1.0f, new Vector2(player.getStandingX()-16, player.getStandingY()-64-8), "","",false,false,Game1.currentLocation,player,false,null));
+     
 
                     Monitor.Log("Pew Pew!", LogLevel.Warn);
            
