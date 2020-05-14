@@ -52,15 +52,7 @@ namespace linkSword
             if (Game1.player.CurrentItem is MeleeWeapon heldWep && heldWep.InitialParentTileIndex == linkSwordID && Game1.player.health == Game1.player.maxHealth)
             {
                 Farmer player = Game1.player;
-                /*So this is a basic projectile....
-                 * public BasicProjectile(
-                 * , , 
-                 * , , , 
-                 * , , , 
-                 * , , , , 
-                 *  ,  = null,  = false, 
-                 *  = null)
-                 */
+
                 Game1.currentLocation.projectiles.Add(
                     new BasicProjectile(
                         0,                                                                  //int damageToFarmer
