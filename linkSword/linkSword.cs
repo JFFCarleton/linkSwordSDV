@@ -66,9 +66,9 @@ namespace linkSword
 
             return Utility.getVelocityTowardPoint
                 (
-                    new Point (player.getStandingX(), player.getStandingY() + 64),                  //Starting Point
-                    new Vector2(Game1.getMouseX(), Game1.getMouseY() + 64),                         //Ending Point
-                    (float)(15 + Game1.random.Next(4, 6)) * (1f + player.weaponSpeedModifier)       //speed
+                    new Point (player.getStandingX(), player.getStandingY() + 64),                                  //Starting Point
+                    new Vector2(Game1.getMouseX()+Game1.viewport.X, Game1.getMouseY()+Game1.viewport.Y + 64),       //Ending Point
+                    (float)(15 + Game1.random.Next(4, 6)) * (1f + player.weaponSpeedModifier)                       //speed
                 );
         }
 
