@@ -41,26 +41,37 @@ namespace linkSword
             helper.Events.GameLoop.GameLaunched += GameLoop_GameLaunched;
             helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
             helper.Events.Input.ButtonPressed += Input_ButtonPressed;
-
         }
 
+        //Logic///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         private void Input_ButtonPressed(object sender, ButtonPressedEventArgs e){
             //ensures that won't run unless the player is able to act, and they are using the "use tool" button.
             if (!Context.IsWorldReady || !Context.CanPlayerMove ||!e.Button.IsUseToolButton() ){ return; }
 
             /*ty kdau!
-            //1. Check if the current item is a MeleeWeapon, stops nulls too! <3
-            //2. Compare the current wep to make sure you're holding the right thing!
-            //3. Check to see if player is at max HP
+            1. Check if the current item is a MeleeWeapon, stops nulls too! <3
+            2. Compare the current wep to make sure you're holding the right thing!
+            3. Check to see if player is at max HP
             */
             if (player.CurrentItem is MeleeWeapon heldWep && heldWep.InitialParentTileIndex == linkSwordID && player.health == player.maxHealth){
                 
                 //if yes, SHOOT SWORD BEAM!
-                Game1.currentLocation.projectiles.Add(new SwordBeam(player));
+                Game1.currentLocation.projectiles.Add(new SwordBeam(player, aimDirection(player)));
                 Monitor.Log("Pew Pew!", LogLevel.Warn);
            
             }else return;  
         }
+
+        public Vector2 aimDirection(Farmer player) {
+
+            return Utility.getVelocityTowardPoint
+                (
+                    new Point (player.getStandingX(), player.getStandingY() + 64),                  //Starting Point
+                    new Vector2(Game1.getMouseX(), Game1.getMouseY() + 64),                         //Ending Point
+                    (float)(15 + Game1.random.Next(4, 6)) * (1f + player.weaponSpeedModifier)       //speed
+                );
+        }
+
     }//end of class linkSword
 
     //create interface for SMapi to use
@@ -69,27 +80,3 @@ namespace linkSword
         void LoadAssets(string path);
     }//end of interface IJasonAssetsApi
 }//end of namespace
-
-
-/*
-//feeling like could need you, might delete later, IDK
-Farmer player = Game1.player;
-new BasicProjectile(
-    0,                                                                  //int damageToFarmer
-    1,                                                                  //int parentSheetIndex
-    0,                                                                  //int bouncesTillDestruct
-    0,                                                                  //int tailLength
-    0.0f,                                                               //float rotationVelocity 
-    -1.0f,                                                              //float xVelocity   
-    -1.0f,                                                              //float yVelocity
-    new Vector2(player.getStandingX()-16, player.getStandingY()-64-8),  //Vector2 startingPosition
-    "",                                                                 //string collisionSound
-    "",                                                                 //string firingSound
-    false,                                                              //bool explode
-    false,                                                              //bool damagesMonsters = false
-    Game1.currentLocation,                                              //GameLocation location
-    player,                                                             //Character firer
-    false,                                                              //bool spriteFromObjectSheet
-    null                                                                //onCollisionBehavior collisionBehavior
-    )
-    */

@@ -16,17 +16,16 @@ namespace linkSword
 {
     class SwordBeam: BasicProjectile
     {
-
-        public SwordBeam(Farmer player) //TODO: Make it shoot in the direction the player is slashing.
+        public SwordBeam(Farmer player, Vector2 aimDir) //TODO: Make it shoot in the direction the player is slashing.
             : base(     
-                    0,                                                                          //int damageToFarmer
-                    1,                                                                          //int parentSheetIndex
+                    10,                                                                         //int damageToFarmer
+                    9,                                                                          //int parentSheetIndex
                     0,                                                                          //int bouncesTillDestruct
                     0,                                                                          //int tailLength
                     0.0f,                                                                       //float rotationVelocity 
-                    -1.0f,                                                                      //float xVelocity   
-                    -1.0f,                                                                      //float yVelocity
-                    new Vector2(player.getStandingX() - 16, player.getStandingY() - 64 - 8),    //Vector2 startingPosition
+                    aimDir.X,                                                                   //float xVelocity   
+                    aimDir.Y,                                                                   //float yVelocity
+                    new Vector2(player.getStandingX() + 30, player.getStandingY() + 30),        //Vector2 startingPosition
                     "",                                                                         //string collisionSound
                     "",                                                                         //string firingSound
                     false,                                                                      //bool explode
@@ -41,7 +40,7 @@ namespace linkSword
              * Logic for animations will **probably** go here. Most everything else will **probably** be handeled by the BaiscProjectile part
              *      -Tho that being said, maybe I should have the sprites tied to to this class?
              *      -I supposed it'd be more modular if I had an assets file, and people could play with it.
-             */
+            */
         }
     }
 }
